@@ -12,7 +12,7 @@ public class Vanilla extends Cake {
     this.layers = v.layers;
     this.price = v.price;
   }
-  public double CalculatePrice (int size, String topping) {
+  public double CalculatePrice (String size, String topping) { //calculates price based on size and added toppings
     if (size.equalsIgnoreCase("small")) {
             price = 20;
         } else if (size.equalsIgnoreCase("medium")) {
