@@ -41,7 +41,7 @@ return true;
 return false;
   }
 
-  public void welcomming() {
+  public void welcoming() {
     System.out.println ("welcom to "+name+" bakery in "+location+"\n");
   }// close display method
 }// close bakery class 
