@@ -10,6 +10,12 @@ public abstract class Cake {
   public Cake (Cake c) {
     
   }/?
+  public String getSize () {
+    return size;
+  }
+  public String getType () {
+    return type;
+  }
   //add setters and getters
   public CalculatePrice () {} //what is the return method here 
   public double getDiscount () {}
