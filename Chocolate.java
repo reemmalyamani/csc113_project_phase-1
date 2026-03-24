@@ -16,7 +16,7 @@ public class Chocolate {
     this.extra = c.extra;
     this.price = c.price;
   }
-  public CalculatePrice (String size, boolean Extra){ //String or int?????
+  public CalculatePrice (String size, boolean Extra){  //calculated prices based on size and added toppings
     price =0;
     if (size.equalsIgnoreCase("small")) {
             price = 25;
