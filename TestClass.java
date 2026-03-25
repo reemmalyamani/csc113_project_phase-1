@@ -36,8 +36,8 @@ int choice = input.nextInt();
         System.out.println("Extra chocolate? (true/false): ");
         boolean rExtra = input.nextBoolean();
 
-        System.out.println("Enter dye color: ");
-        String dye = input.next();
+        System.out.println("Enter dye type (premium/standard/other): ");
+    String dye = input.next();
          c = new RedVelvet("Red Velvet", rSize, rLayers, rExtra, dye);
       
         double fprice = c.CalculatePrice(); // 
