@@ -1,4 +1,5 @@
-public class Employee{
+public class Employee {
+   
 
 private String name;
 private double workHrs;
@@ -11,7 +12,13 @@ this.workHrs=workHrs;
 }
 
 public void calculateBill(Customer C){
-C.
+System.out.println(C.getName());
+
+C.displayOrders();
+
+System.out.println("\nTotal Price: "+ C.customerTotal()+"SR");
+System.out.println("Total price after customer discount:"+(C.customerTotal()-C.getDiscount()));
+System.out.println("thank you for ordering ");
 
 }
 
@@ -21,3 +28,4 @@ C.
 
 
 }
+    
