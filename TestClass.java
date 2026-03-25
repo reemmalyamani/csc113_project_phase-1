@@ -20,7 +20,11 @@ int choice = input.nextInt();
         System.out.println("Extra chocolate? (true/false): ");
         boolean extra = input.nextBoolean();
 //Calculate price method goes here
-        c = new Chocolate("Chocolate", cSize, layers, extra);
+        c = new Chocolate("Chocolate", cSize, layers, extra); 
+       double fprice = c.CalculatePrice(); // capture return value
+        System.out.println("Final Price based on choices: " + fprice);
+
+        c.displayInfo(loyalYears);
         break;
     case 4: //Red Velvet
          System.out.println("Enter size (Small/Medium/Large): ");
@@ -35,7 +39,11 @@ int choice = input.nextInt();
         System.out.println("Enter dye color: ");
         String dye = input.next();
          c = new RedVelvet("Red Velvet", rSize, rLayers, rExtra, dye);
-        // Calculate price method goes here 
+      
+        double fprice = c.CalculatePrice(); // 
+        System.out.println("Final Price based on choices: " + fprice);
+
+        c.displayInfo(loyalYears);
         break;
     case 0 :
         System.out.println ("Exiting...");
