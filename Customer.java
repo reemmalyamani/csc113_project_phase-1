@@ -1,4 +1,4 @@
-public class Customer {
+public class Customer implements Discount{
 private String name;
 private String phoneNo;
 private int loyalYears;
