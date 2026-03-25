@@ -18,11 +18,22 @@ public Bakery (String name, String location, int sizeEmp){
 } //close constructor 
 
   public boolean addCake (Cake c) {
-if(nOfCake==listCake.length)
-    return false;
-listCake[nOfCake++]=new Cake(c);
-return true;
-  }
+if(nOfCake<listCake.length){
+   
+if(c instanceof redVelvet){
+   listCake[nOfCake++]=new redVelvet((redVelvet)c);
+return true;}
+   
+if(c instanceof Chocolate){
+listCake[nOfCake++]=new Chocolate((Chocolate)c);
+return true;}
+   
+if(c instanceof Vanilla){
+   listCake[nOfCake++]=new Vanilla((Vanilla)c);
+return true;}
+}
+        return false;
+  } //used instanceof because Cake is abstract class
 
 
   public boolean  addEmployee (Employee p){
