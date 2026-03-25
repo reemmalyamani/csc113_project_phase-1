@@ -48,11 +48,10 @@ return sum;
 }
 
 public void display(){
-System.out.println("**************");
+
 for(int i=0;i<noOfCakes;++i){
     listCakes[i].display();
 }
-System.out.println("**************");
 
 }
 
