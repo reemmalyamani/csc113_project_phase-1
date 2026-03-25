@@ -1,4 +1,4 @@
-public abstract class Cake {
+public abstract class Cake implements Discount{
     protected String type;
     protected double price;
     protected String size;
