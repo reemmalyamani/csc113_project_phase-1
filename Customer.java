@@ -24,7 +24,7 @@ return true;
 }
 
 
-public double cusDiscount(){
+public double getDiscount(){
     return loyalYears*0.5;
 }
 
@@ -39,6 +39,8 @@ public String getName(){
 
 
 public void displayOrders(){
+    
+System.out.println("***************");
     for(int i=0;i<noOfOrders;++i){
          if(listOrders[i]!=null){
         System.out.println("order "+(i+1));
@@ -51,17 +53,18 @@ public void displayOrders(){
 public double customerTotal(){
     double sumTotalOrders=0;
     for(int i=0;i<noOfOrders;++i){
-        System.out.println("Total price for order "+(i+1)+"is:"+(listOrders[i].cakeTotalPrice()));
+       
         sumTotalOrders+=listOrders[i].cakeTotalPrice();
     }
    return sumTotalOrders;
  
 }
 
-
+public String getName(){
+    return name;
+}
 
 
 }
-
 
 
