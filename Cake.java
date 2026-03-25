@@ -17,7 +17,9 @@ public abstract class Cake {
     return type;
   }
   //add setters and getters
-  public CalculatePrice () {} //what is the return method here 
+  public double CalculatePrice () {
+    
+  } //what is the return method here 
   public double getDiscount () {}
   public void displayinfo (){
     System.out.println (""); 
