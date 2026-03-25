@@ -25,7 +25,7 @@ return true;
 
 
 public double getDiscount(){
-    return loyalYears*0.5;
+    return this.loyalYears*0.5;
 }
 
 
