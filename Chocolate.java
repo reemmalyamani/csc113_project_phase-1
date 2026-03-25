@@ -1,4 +1,4 @@
-public class Chocolate {
+public class Chocolate extends Cake{
   protected int layers;
   private boolean extra; 
   private double price;
