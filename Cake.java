@@ -46,22 +46,22 @@ public abstract class Cake implements Discount{
     public abstract double CalculatePrice();
 
     // Discount method
-    public double getDiscount(int loyalYears) {
-        if (loyalYears >= 5) {
+   public double getDiscount() {
+        if (this.size.equalsIgnoreCase("Large")) {
             return price * 0.10; // 10% discount
         }
         return 0;
-    }
+    }//overide interface method
+
 
     // Display info
-    public void displayInfo(int loyalYears) {
-        double discount = getDiscount(loyalYears);
+    public void displayInfo() {
+        double discount = getDiscount();
         double finalPrice = price - discount;
 
-        System.out.println("Type: " + type);
-        System.out.println("Size: " + size);
-        System.out.println("Original Price: " + price);
-        System.out.println("Discount: " + discount);
-        System.out.println("Final Price: " + finalPrice);
+        System.out.println("Type: " + type+"--- Size:"+ size+"\nOriginal Price: " + price+"---Discount:" + discount+"Final Price: " + finalPrice);
+
+    
+       
     }
 }
