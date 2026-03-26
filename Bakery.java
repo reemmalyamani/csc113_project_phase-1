@@ -56,6 +56,6 @@ public void increaseSoldCount() {
     soldCount++;
 }
   public void welcoming() {
-    System.out.println ("welcom to "+name+" bakery in "+location+"\n");
+    System.out.println ("Welcome to "+name+" bakery in "+location+"\n");
   }// close display method
 }// close bakery class 
