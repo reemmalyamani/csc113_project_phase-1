@@ -44,7 +44,7 @@ System.out.println("not found");
 public double cakeTotalPrice(){
     int sum=0;
     for(int i=0;i<noOfCakes;++i){
-        sum+=listCakes[i].getPrice();
+        sum+=listCakes[i].CalculatePrice();
     }
 return sum;
 }
