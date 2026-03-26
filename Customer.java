@@ -32,7 +32,7 @@ return 0;
 
 
 public String toString(){
-    return name+" phoneNo: "+phoneNo+"\n number of orders is "+noOfOrders;
+    return name+ " Phone Number: "+phoneNo+"\n number of orders is "+noOfOrders;
 }
 
 public String getName(){
