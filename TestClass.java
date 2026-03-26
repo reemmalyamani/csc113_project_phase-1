@@ -2,7 +2,7 @@ import java.util.*;
 public class TestClass {
 public static void main (String [] args ) {
 
-    int choise;
+    int choice;
     Order O=null;
 
 
@@ -20,12 +20,12 @@ Customer C1=new  Customer(name,phone,loyalyears);
 
 do { 
  
-System.out.println("choose from list:");
+System.out.println("Choose from list:");
 System.out.println("1-make an order\n 2-done");
-choise=input.nextInt();
+choice=input.nextInt();
 
 //new do while to create order
-switch (choise){
+switch (choice){
 
 case 1: 
 System.out.println("how many Cakes you want to add?");
@@ -34,8 +34,13 @@ int nuOfcakes=input.nextInt();
 int x=0;
 int n;
 do{
-  System.out.println("choose from menue \n 1-chocolate cake \n 2-vanilla cake\n 3-red velvet cake\n 0-done");
- n =input.nextInt();
+  System.out.println("Choose from menu:");
+                        System.out.println("1 - Chocolate cake");
+                        System.out.println("2 - Vanilla cake");
+                        System.out.println("3 - Red velvet cake");
+                        System.out.println("0 - Done");
+                        n = input.nextInt();
+
 Cake c=null;
 
 //to choose cake
@@ -56,12 +61,12 @@ switch(n){
         c = new Chocolate("Chocolate", cSize, clayers, extra); 
        double fprice = c.CalculatePrice(); // capture return value
         System.out.println("Final Price based on choices: " + fprice);
-            if( O.addCake(c))
+          /*  if( O.addCake(c))
               { x++;
-         c.displayInfo();}
+         c.displayInfo();}  COMMENT HERE: instead of doing this in each method
          else {
-    System.out.println("Cannot add more cakes, order is full.");
-}
+    System.out.println("Cannot add more cakes, order is full."); */ 
+} 
         break;
 
     case 2:// vanilla
@@ -78,12 +83,12 @@ switch(n){
          c=new Vanilla("Vanilla",vSize,vLayers,topping);
          double vPrice=c.CalculatePrice();
          System.out.println("Final Price based on choices: " + vPrice);
-        if( O.addCake(c))
+     /*   if( O.addCake(c))
               { x++;
          c.displayInfo();}
          else {
-    System.out.println("Cannot add more cakes, order is full.");
-}
+    System.out.println("Cannot add more cakes, order is full."); 
+} */
 
         break;
 
@@ -104,12 +109,12 @@ switch(n){
       
         double rprice = c.CalculatePrice(); 
         System.out.println("Final Price based on choices: " + rprice);
-            if( O.addCake(c))
+       /*     if( O.addCake(c))
               { x++;
          c.displayInfo();}
          else {
     System.out.println("Cannot add more cakes, order is full.");
-}
+} */
   
         break;
 
@@ -119,11 +124,23 @@ switch(n){
         break;
     
         default:
-            System.out.println("inalid choice");
+            System.out.println("invalid choice");
 
 
 
-}
+} // Close first switch
+    if (c != null) {
+                            double price = c.CalculatePrice();  //@!!!!!!!!!!!!!!!!!
+                            System.out.println("Final Price based on choices: " + price);
+
+                            if (O.addCake(c)) {
+                                x++;
+                                c.displayInfo();
+                            } else {
+                                System.out.println("Cannot add more cakes, order is full.");
+                            }
+                        }
+
 
 
 }while(n!=0 && x<nuOfcakes);
