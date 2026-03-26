@@ -163,5 +163,18 @@ Employee e1 = new Employee ("Hatoon" , 80, 4000);
 b1.addEmployee(e1);
 b1.addEmployee(e2);
 e1.calculateBill(C1);
+b1.addCake(new Chocolate("Chocolate", "Small", 2, true));
+b1.addCake(new Vanilla("Vanilla", "Medium", 1, "Caramel"));
+b1.addCake(new redVelvet("Red Velvet", "Large", 3, false, "premium"));
+b1.addCake(new Vanilla("Vanilla", "Small", 2, "Strawberry"));
+b1.addCake(new Chocolate("Chocolate", "Large", 4, false));
+// testing search cake 
+System.out.println("\nTesting searchCake:");
+b1.searchCake("Vanilla");
+b1.searchCake("Chocolate");
+b1.searchCake("Red Velvet");
+b1.searchCake("Mango");
+
+
 }
 }
