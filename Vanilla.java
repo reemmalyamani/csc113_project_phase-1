@@ -1,5 +1,6 @@
 public class Vanilla extends Cake {
   private String topping;
+  private int layers;
   public Vanilla (String type, String size, int layers, String topping){
     super (type, size);
     this.topping= topping;
@@ -12,13 +13,16 @@ public class Vanilla extends Cake {
     this.layers = v.layers;
     this.price = v.price;
   }
-  public double CalculatePrice (String size, String topping) { //calculates price based on size and added toppings
-    if (size.equalsIgnoreCase("small")) {
+ @Override
+    public double CalculatePrice() {
+        if (size.equalsIgnoreCase("small")) {
             price = 20;
         } else if (size.equalsIgnoreCase("medium")) {
             price = 30;
         } else if (size.equalsIgnoreCase("large")) {
             price = 40;
+        } else {
+            price = 0;
         }
 
         if (topping.equalsIgnoreCase("chocolate")) {
@@ -37,7 +41,7 @@ public class Vanilla extends Cake {
 
   @Override 
   public String toString () {
-    "\nTopping: " + topping +
+   return "\nTopping: " + topping +
                "\nLayers: " + layers +
                "\nPrice: " + price;
   }//close to string
