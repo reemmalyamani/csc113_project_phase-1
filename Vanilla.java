@@ -8,7 +8,7 @@ public class Vanilla extends Cake {
   }
   public Vanilla (Vanilla v) {
     //recives object 
-    super (v.type, v.size);
+    super (v); // v instead of v.type, v.size  so it uses the copy construcrtor 
     this.topping= v.topping;
     this.layers = v.layers;
     this.price = v.price;
@@ -38,11 +38,12 @@ public class Vanilla extends Cake {
         return price;
     }
   
+@Override
+public void displayInfo() {
+    super.displayInfo(); // print basic cake info (inherited)
 
-  @Override 
-  public String toString () {
-   return "\nTopping: " + topping +
-               "\nLayers: " + layers +
-               "\nPrice: " + price;
-  }//close to string
+    System.out.println("Topping: " + topping);
+    System.out.println("Layers: " + layers);
+}
+
 }
