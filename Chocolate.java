@@ -1,12 +1,12 @@
 public class Chocolate extends Cake{
   protected int layers;
   private boolean extra; 
-  private double price;
+  
   public Chocolate (String type, String size, int layers, boolean extra) {
     super (type, size);
     this.layers= layers;  //layers should be inherited ?
     this.extra = extra;
-    this.extra = extra;
+    
     this.price = 0;
     //i dont know what to do with cocoa
   }//close constructor
@@ -16,7 +16,8 @@ public class Chocolate extends Cake{
     this.extra = c.extra;
     this.price = c.price;
   }
-  public double CalculatePrice (String size, boolean Extra){  //calculated prices based on size and added toppings
+
+  public double CalculatePrice (){  //calculated prices based on size and added toppings
     price =0;
     if (size.equalsIgnoreCase("small")) {
             price = 25;
@@ -28,18 +29,21 @@ public class Chocolate extends Cake{
 
         price += layers * 5;
 
-        if (extra) {
+        if (this.extra) {
             price += 8;
         }
 
+
         return price;
-  }// close Calculate price
+  }// close abstract Calculate price
  
-  @Override 
-  public String toString (){
-     return super.toString() +
-    "\nLayers: " + layers +
-               "\nExtra cocoa: " + extra +
-               "\nPrice: " + price;
-  }
+  public void displayInfo() {
+        double discount = getDiscount();
+        double finalPrice = price - discount;
+
+        System.out.println("Type: " + type+"--- Size:"+ size+"layers:"+layers+"\nOriginal Price: " + price+"---Discount:" + discount+"Final Price: " + finalPrice);
+
+    
+       
+    }
 }
