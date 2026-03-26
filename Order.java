@@ -51,12 +51,14 @@ return false;
 
 }
 
-public boolean searchCake(String type){
-for (int i = 0; i<noOfCakes;i++) 
-    if(listCakes[i].getType().equals(type)){
-     System.out.print("\nfound");
-    return true;}
-System.out.println("not found");
+public boolean searchCake(String type) {
+    for (int i = 0; i < noOfCakes; i++) {
+        if (listCakes[i].getType().equalsIgnoreCase(type)) {
+            System.out.println("Found");
+            return true;
+        }
+    }
+    System.out.println("Not found");
     return false;
 }
 
