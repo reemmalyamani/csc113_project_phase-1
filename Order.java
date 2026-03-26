@@ -1,14 +1,33 @@
-public class Orders {
+public class Order {
 
 private int noOfCakes;
 private Cake listCakes[];
 
-public Orders(int size){
+public Order(int size){
 noOfCakes=0;
 listCakes=new Cake[size];
 
 }
 
+public Order(Order o){
+this.noOfCakes=o.noOfCakes;
+this.listCakes=new Cake[o.listCakes.length];
+for(int i=0;i<noOfCakes;++i){
+if(o.listCakes[i] instanceof redVelvet)
+    this.listCakes[i]=new redVelvet((redVelvet)o.listCakes[i]);
+
+else if(o.listCakes[i]instanceof Chocolate)
+    this.listCakes[i]=new Chocolate((Chocolate)o.listCakes[i]);
+
+else if(o.listCakes[i]instanceof Vanilla)
+    this.listCakes[i]=new Vanilla((Vanilla)o.listCakes[i]);
+
+
+}
+
+
+
+}
 public boolean addCake(Cake c){
 if(noOfCakes==listCakes.length)
 return false;
@@ -41,7 +60,7 @@ System.out.println("not found");
     return false;
 }
 
-public double cakeTotalPrice(0) {
+public double cakeTotalPrice(int index) {
     if (index == noOfCakes)
         return 0;
 
@@ -53,9 +72,12 @@ public double cakeTotalPrice(0) {
 public void display(){
 
 for(int i=0;i<noOfCakes;++i){
-    listCakes[i].display();
+    listCakes[i].displayInfo();
 }
 
 }
 
+public int getnoOfCakes(){
+    return noOfCakes;
+}
 }
