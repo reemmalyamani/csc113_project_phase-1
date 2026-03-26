@@ -16,7 +16,7 @@ public class Chocolate extends Cake{
     this.extra = c.extra;
     this.price = c.price;
   }
-  public CalculatePrice (String size, boolean Extra){  //calculated prices based on size and added toppings
+  public double CalculatePrice (String size, boolean Extra){  //calculated prices based on size and added toppings
     price =0;
     if (size.equalsIgnoreCase("small")) {
             price = 25;
@@ -34,9 +34,7 @@ public class Chocolate extends Cake{
 
         return price;
   }// close Calculate price
-  public double getDiscount (double prec) {
-    return price * 0.9;
-  } //same as comment about names in class Vanilla
+ 
   @Override 
   public String toString (){
      return super.toString() +
