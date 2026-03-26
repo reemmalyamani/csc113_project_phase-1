@@ -41,14 +41,15 @@ System.out.println("not found");
     return false;
 }
 
-public double cakeTotalPrice(){
-    int sum=0;
-    for(int i=0;i<noOfCakes;++i){
-        sum+=listCakes[i].CalculatePrice(0);
-    }
-return sum;
-}
+public double cakeTotalPrice(0) {
+    if (index == noOfCakes)
+        return 0;
 
+    return listCakes[index].CalculatePrice() 
+           + cakeTotalPrice(index + 1);
+}//recursive method
+
+    
 public void display(){
 
 for(int i=0;i<noOfCakes;++i){
