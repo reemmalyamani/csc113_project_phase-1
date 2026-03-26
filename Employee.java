@@ -1,3 +1,4 @@
+
 public class Employee {
    
 
@@ -21,11 +22,5 @@ System.out.println("Total price after customer discount:"+(C.customerTotal()-C.g
 System.out.println("thank you for ordering ");
 
 }
-
-
-
-
-
-
 }
-    
+
