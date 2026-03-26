@@ -8,7 +8,7 @@ public class Chocolate extends Cake{
     this.extra = extra;
     
     this.price = 0;
-    //i dont know what to do with cocoa
+    // cocoa
   }//close constructor
   public Chocolate (Chocolate c) {
     super (c.type, c.size);
