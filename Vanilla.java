@@ -34,9 +34,7 @@ public class Vanilla extends Cake {
         return price;
     }
   
-  public double getDiscount (double prec ) {
-    return price* 0.9;
-  }//chnage name of method and name of argument
+
   @Override 
   public String toString () {
     "\nTopping: " + topping +
