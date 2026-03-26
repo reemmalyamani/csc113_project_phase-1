@@ -6,6 +6,7 @@ public class Bakery {
   private int nOfCake;
   private Employee listEmp[];
 private Cake listCake[];
+   private int soldCount;
 
 public Bakery (String name, String location, int sizeEmp){
   this.name = name;
@@ -51,7 +52,9 @@ return true;
 }
 return false;
   }
-
+public void increaseSoldCount() {
+    soldCount++;
+}
   public void welcoming() {
     System.out.println ("welcom to "+name+" bakery in "+location+"\n");
   }// close display method
