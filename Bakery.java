@@ -20,7 +20,7 @@ public Bakery (String name, String location, int sizeEmp){
   public boolean addCake (Cake c) {
 if(nOfCake<listCake.length){
    
-if(c instanceof redVelvet){
+if (c instanceof redVelvet){
    listCake[nOfCake++]=new redVelvet((redVelvet)c);
 return true;}
    
