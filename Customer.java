@@ -3,7 +3,7 @@ private String name;
 private String phoneNo;
 private int loyalYears;
 private int noOfOrders;
-Orders listOrders[];
+private Order listOrders[];
 
 
 public Customer(String name,String phoneNo,int loyalYears){
@@ -12,20 +12,22 @@ this.name=name;
 this.phoneNo=phoneNo;
 this.loyalYears=loyalYears;
 noOfOrders=0;
-listOrders=new Orders[10];
+listOrders=new Order[10];
 }
 
-public boolean addOrder(Orders o){
+public boolean addOrder(Order o){
 if(noOfOrders==listOrders.length)
 return false;
 
-listOrders[noOfOrders++]=new Orders(o);
+listOrders[noOfOrders++]=new Order(o);
 return true;
 }
 
 
 public double getDiscount(){
-    return this.loyalYears*0.5;
+    if(loyalYears>10)
+    return this.loyalYears*0.05;
+return 0;
 }
 
 
@@ -54,14 +56,10 @@ public double customerTotal(){
     double sumTotalOrders=0;
     for(int i=0;i<noOfOrders;++i){
        
-        sumTotalOrders+=listOrders[i].cakeTotalPrice();
+        sumTotalOrders+=listOrders[i].cakeTotalPrice(0);
     }
    return sumTotalOrders;
  
-}
-
-public String getName(){
-    return name;
 }
 
 
