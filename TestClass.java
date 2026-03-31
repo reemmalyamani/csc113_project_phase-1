@@ -1,3 +1,4 @@
+
 import java.util.*;
 public class TestClass {
 public static void main (String [] args ) {
@@ -7,12 +8,34 @@ public static void main (String [] args ) {
 
 
   Scanner input = new Scanner (System.in);
-  Bakery b1 = new Bakery("Cakes and more", "Riyadh", 4) ;
+  //Bakery components//
+Bakery b1 = new Bakery("Cakes and more", "Riyadh", 4) ;
+Employee e1 = new Employee ("Hatoon" , 80, 4000);
+Employee e2 = new Employee ("Sara" , 40, 2200);
+b1.addEmployee(e1);
+b1.addEmployee(e2);
+Cake c1 = new Chocolate("Chocolate", "Small", 2, true);
+Cake c2 = new Vanilla("Vanilla", "Medium", 1, "Caramel");
+Cake c3 = new redVelvet("Red Velvet", "Large", 3, false, "premium");
+Cake c4 = new Vanilla("Vanilla", "Small", 2, "Strawberry");
+Cake c5 = new Chocolate("Chocolate", "Large", 4, false);
+b1.addCake(c1);
+b1.addCake(c2);
+b1.addCake(c3);
+b1.addCake(c4);
+b1.addCake(c5);
+
+
+
+
+
+//customer //
+
   b1.welcoming ();
 
-System.out.println("write your name");
-String name=input.next();
-System.out.println("your phone number:");
+System.out.println("Enter your name: ");
+String name=input.nextLine();
+System.out.println("Enter your phone number:");
 String phone=input.next();
 System.out.println("How many years you have been a customer for our bakery?");
 int loyalyears=input.nextInt();
@@ -21,7 +44,8 @@ Customer C1=new  Customer(name,phone,loyalyears);
 do { 
  
 System.out.println("Choose from list:");
-System.out.println("1-make an order\n 2-done");
+System.out.println("1-make an order");
+System.out.println("2-done ");
 choice=input.nextInt();
 
 //new do while to create order
@@ -31,13 +55,13 @@ case 1:
 System.out.println("how many Cakes you want to add?");
 int nuOfcakes=input.nextInt();
  O=new Order(nuOfcakes);
-int x=0;
+ int x=0;
 int n;
 do{
   System.out.println("Choose from menu:");
-                        System.out.println("1 - Chocolate cake");
-                        System.out.println("2 - Vanilla cake");
-                        System.out.println("3 - Red velvet cake");
+                        System.out.println("1 -customize order");
+                        System.out.println("2-choose cake from bakery");
+                        System.out.println("3-remove a cake from order");
                         System.out.println("0 - Done");
                         n = input.nextInt();
 
@@ -47,75 +71,110 @@ Cake c=null;
 
 switch(n){
 
-    case 1://chocolate 
+    case 1:
+      System.out.println("choose type (Chocolate/Vanilla/Redvelvet) ");
+     
+      String ctype= input.next();
       System.out.println("Enter size (Small/Medium/Large): ");
         String cSize = input.next();
 
         System.out.println("Enter number of layers: ");
-        int clayers = input.nextInt();
-        input.nextLine();
+        int cLayers = input.nextInt();
+        
+    //chocolate 
+        if(ctype.equalsIgnoreCase("Chocolate")){
+          System.out.println("Extra chocolate? (Y/N): ");
+        boolean extra = false;
+        char ch0 = input.next().charAt(0);
+          if (ch0 =='y'||ch0=='Y') 
+            extra=true; 
+          else if(ch0=='n'||ch0=='N') 
+            extra=false; 
+          else System.out.println ("Invalid input");
 
-        System.out.println("Extra chocolate? (true/false): ");
-        boolean extra = input.nextBoolean();
-//Calculate price method goes here
-        c = new Chocolate("Chocolate", cSize, clayers, extra); 
-       double fprice = c.CalculatePrice(); // capture return value
-        System.out.println("Final Price based on choices: " + fprice);
-          /*  if( O.addCake(c))
-              { x++;
-         c.displayInfo();}  COMMENT HERE: instead of doing this in each method
-         else {
-    System.out.println("Cannot add more cakes, order is full."); */ 
-} 
-        break;
+        c = new Chocolate("Chocolate", cSize, cLayers, extra); }  
 
-    case 2:// vanilla
-        System.out.println("Enter size (Small/Medium/Large): ");
-        String vSize = input.next();
-
-        System.out.println("Enter number of layers: ");
-        int vLayers = input.nextInt();
-        input.nextLine();
-
+    //vanilla
+        else if(ctype.equalsIgnoreCase("Vanilla")){
          System.out.println("Enter topping (Caramel/strawberry/Chocolate): ");
          String topping=input.next();
+         c=new Vanilla("Vanilla",cSize,cLayers ,topping);}
 
-         c=new Vanilla("Vanilla",vSize,vLayers,topping);
-         double vPrice=c.CalculatePrice();
-         System.out.println("Final Price based on choices: " + vPrice);
-     /*   if( O.addCake(c))
-              { x++;
-         c.displayInfo();}
-         else {
-    System.out.println("Cannot add more cakes, order is full."); 
-} */
+       //Redvelvet
+         else if(ctype.equalsIgnoreCase("Redvelvet")){
+          System.out.println("Extra chocolate? (Y/N): ");
+          boolean rExtra=false;
+          char ch = input.next().charAt(0);
+          if (ch =='y'||ch=='Y') 
+            rExtra=true; 
+          else if(ch=='n'||ch=='N') 
+            rExtra=false; 
+          else System.out.println ("Invalid input");
+
+        System.out.println("Enter dye type (premium/standard/other): ");
+        String dye = input.next();
+         c = new redVelvet("Red Velvet", cSize, cLayers, rExtra, dye);
+
+         }
+         else System.out.println("invalid type ");
+ if (c != null) 
+    x=handleCake(c,O,x); //method to do the rebated command
+
 
         break;
 
+    case 2:
+        System.out.println("choose from available cakes");
+        System.out.println("1-Chocolate cake,size small,2 layers,extra coco");
+        System.out.println("2-Vanilla cake, size medium, one layer with caramel topping");
+        System.out.println("3-Red Velvet cake, size Large, 3layers without extra coco premium dye");
+        System.out.println("4-Vanilla cake, size small, 2 layer with Strawberry topping");
+        System.out.println("5-Chocolate cake , size Large,4 layers without extra coco");
+        int Ava= input.nextInt();
+        if(Ava==1){
+            x=handleCake(c1,O,x);
+                        }
+        else if(Ava==2){
+            x=handleCake(c2,O,x);
+        }
+          else if(Ava==3){
+            x=handleCake(c3,O,x);
+        }
+          else if(Ava==4){
+            x=handleCake(c4,O,x);
+        }
+         else if(Ava==5){
+            x=handleCake(c5,O,x);
+        }
+        else  System.out.println("invalid");
+        break;
 
-    case 3://red velvet
-        System.out.println("Enter size (Small/Medium/Large): ");
-        String rSize = input.next();
-
-        System.out.println("Enter number of layers: ");
-        int rLayers = input.nextInt();
-
-        System.out.println("Extra chocolate? (true/false): ");
-        boolean rExtra = input.nextBoolean();
-
-        System.out.println("Enter dye type (premium/standard/other): ");
-    String dye = input.next();
-         c = new redVelvet("Red Velvet", rSize, rLayers, rExtra, dye);
-      
-        double rprice = c.CalculatePrice(); 
-        System.out.println("Final Price based on choices: " + rprice);
-       /*     if( O.addCake(c))
-              { x++;
-         c.displayInfo();}
-         else {
-    System.out.println("Cannot add more cakes, order is full.");
-} */
-  
+    case 3:
+      if(O!=null && x>0){
+       System.out.println("choose which cake you want to remove");
+        System.out.println("1-Chocolate cake,size small,2 layers,extra coco");
+        System.out.println("2-Vanilla cake, size medium, one layer with caramel topping");
+        System.out.println("3-Red Velvet cake, size Large, 3layers without extra coco premium dye");
+        System.out.println("4-Vanilla cake, size small, 2 layer with Strawberry topping");
+        System.out.println("5-Chocolate cake , size Large,4 layers without extra coco");
+        int remove= input.nextInt();
+        if(remove==1){
+            x=removeCake(c1,O,x);
+                        }
+        else if(remove==2){
+            x=removeCake(c2,O,x);
+        }
+          else if(remove==3){
+            x=removeCake(c3,O,x);
+        }
+          else if(remove==4){
+            x=removeCake(c4,O,x);
+        }
+         else if(remove==5){
+            x=removeCake(c5,O,x);
+        }
+        else  System.out.println("invalid");}
+        else System.out.println("no cakes in order to remove ");
         break;
 
     case 0:
@@ -128,21 +187,8 @@ switch(n){
 
 
 
-} // Close first switch
-    if (c != null) {
-                            double price = c.CalculatePrice();  //@!!!!!!!!!!!!!!!!!
-                            System.out.println("Final Price based on choices: " + price);
-
-                            if (O.addCake(c)) {
-                                x++;
-                                c.displayInfo();
-                            } else {
-                                System.out.println("Cannot add more cakes, order is full.");
-                            }
-                        }
-
-
-
+}
+if(x==nuOfcakes) System.out.println("you have reached the maximum number of cakes you chosen for this order do another order if you want more");
 }while(n!=0 && x<nuOfcakes);
 if (x > 0) {  C1.addOrder(O);
                     } else {
@@ -150,31 +196,57 @@ if (x > 0) {  C1.addOrder(O);
                     }
 break;
 
-case 2: System.out.println("done ");
+case 2: System.out.println("thank you for choosing us");
 
         break;
 
         default:System.err.println("invalid");
 
-}} while (choise!=2);
+}} while (choice!=2);
 
-Employee e1 = new Employee ("Hatoon" , 80, 4000);
- Employee e2 = new Employee ("Sara" , 40, 2200);
-b1.addEmployee(e1);
-b1.addEmployee(e2);
 e1.calculateBill(C1);
-b1.addCake(new Chocolate("Chocolate", "Small", 2, true));
-b1.addCake(new Vanilla("Vanilla", "Medium", 1, "Caramel"));
-b1.addCake(new redVelvet("Red Velvet", "Large", 3, false, "premium"));
-b1.addCake(new Vanilla("Vanilla", "Small", 2, "Strawberry"));
-b1.addCake(new Chocolate("Chocolate", "Large", 4, false));
-// testing search cake 
-System.out.println("\nTesting searchCake:");
-b1.searchCake("Vanilla");
-b1.searchCake("Chocolate");
-b1.searchCake("Red Velvet");
-b1.searchCake("Mango");
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
+
+
+
+public static int handleCake(Cake C,Order O,int x){
+  double price = C.CalculatePrice();  
+                            System.out.println("\n Final Price based on choices: " + price);
+
+                             if (O.searchCake(C)) {  
+                              
+        System.out.println("This cake is already added to your order.");}
+
+                  else{ if (O.addCake(C)) {
+                                x++;
+                                C.displayInfo();
+                            } else {
+                                System.out.println("Cannot add more cakes, order is full.");
+                            }}
+                       return x; }
+
+public static int removeCake(Cake C,Order O,int x)
+{
+if(O.removeCake(C)) {
+  System.out.println("cake removed successfully");
+  x--;
+}
+else  System.out.println("nothing found to  remove");
+
+return x;
+}
+
 }
