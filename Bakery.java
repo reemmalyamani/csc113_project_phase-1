@@ -6,7 +6,7 @@ public class Bakery {
   private int nOfCake;
   private Employee listEmp[];
 private Cake listCake[];
-   private int soldCount;
+  private int soldCount=200;
 
 public Bakery (String name, String location, int sizeEmp){
   this.name = name;
@@ -45,16 +45,12 @@ return true;
 
   }
 
-  public boolean isAvailable (Cake c) {
-for(int i=0;i<nOfCake;++i){
-if(listCake[i].getType().equals(c.getType()) && listCake[i].getSize().equals(c.getSize()))
-return true;
+
+public void decreaseSoldCount() {
+    soldCount--;
 }
-return false;
-  }
-public void increaseSoldCount() {
-    soldCount++;
-}
+  
+
   public void welcoming() {
     System.out.println ("Welcome to "+name+" bakery in "+location+"\n");
   }// close display method
