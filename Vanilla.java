@@ -2,15 +2,14 @@ public class Vanilla extends Cake {
   private String topping;
   private int layers;
   public Vanilla (String type, String size, int layers, String topping){
-    super (type, size);
+    super (type, size,layers);
     this.topping= topping;
-    this.layers = layers;
+   
   }
   public Vanilla (Vanilla v) {
     //recives object 
     super (v); // v instead of v.type, v.size  so it uses the copy construcrtor 
     this.topping= v.topping;
-    this.layers = v.layers;
     this.price = v.price;
   }
  @Override
@@ -38,14 +37,22 @@ public class Vanilla extends Cake {
         return price;
     }
   
+    public boolean isSame(Cake c){
+          if(!(c instanceof Vanilla)) return false;
+          Vanilla other= (Vanilla)c;
+          return super.isSame(c) && this.topping.equalsIgnoreCase(other.topping);
+          
+      
+    }
 @Override
 public void displayInfo() {
-   double discount = getDiscount();
-        double finalPrice = price - discount;
+  /*  double discount = getDiscount();
+        double finalPrice = price - discount;*/
+
     super.displayInfo(); // print basic cake info (inherited)
       
-    System.out.println("Topping: " + topping);
-    System.out.println("Layers: " + layers);
+    System.out.println("Topping: " + topping+" Layers:" + layers);
+    
 }
 
 }
