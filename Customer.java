@@ -25,14 +25,14 @@ return true;
 
 
 public double getDiscount(){
-    if(loyalYears>10)
-    return this.loyalYears*0.05;
+    if(loyalYears>5)
+    return customerTotal()*0.25;
 return 0;
 }
 
 
 public String toString(){
-    return name+ " Phone Number: "+phoneNo+"\n number of orders is "+noOfOrders;
+    return "customer name:"+name+ " Phone Number: "+phoneNo+"\nnumber of orders is "+noOfOrders;
 }
 
 public String getName(){
@@ -44,9 +44,9 @@ public void displayOrders(){
     
 System.out.println("***************");
     for(int i=0;i<noOfOrders;++i){
-         if(listOrders[i]!=null){
+        
         System.out.println("order "+(i+1));
-        listOrders[i].display();}
+        listOrders[i].display();
     }
     System.out.println("*********");
 }
@@ -64,5 +64,4 @@ public double customerTotal(){
 
 
 }
-
 
