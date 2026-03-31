@@ -1,18 +1,18 @@
 public class Chocolate extends Cake{
-  protected int layers;
+
   private boolean extra; 
   
   public Chocolate (String type, String size, int layers, boolean extra) {
-    super (type, size);
-    this.layers= layers;  //layers should be inherited ?
+    super (type, size,layers);
+    
     this.extra = extra;
     
     this.price = 0;
     // cocoa
   }//close constructor
   public Chocolate (Chocolate c) {
-    super (c.type, c.size);
-    this.layers = c.layers;
+    super (c.type, c.size,c.layers);
+   
     this.extra = c.extra;
     this.price = c.price;
   }
@@ -37,11 +37,18 @@ public class Chocolate extends Cake{
         return price;
   }// close abstract Calculate price
  
-  public void displayInfo() {
-        double discount = getDiscount();
-        double finalPrice = price - discount;
 
-        System.out.println("Type: " + type+"--- Size:"+ size+"layers:"+layers+"\nOriginal Price: " + price+"---Discount:" + discount+"Final Price: " + finalPrice);
+    public boolean isSame(Cake c){
+          if(!(c instanceof Chocolate)|| (c instanceof redVelvet)) return false;
+          Chocolate other= (Chocolate)c;
+          return super.isSame(c) && this.extra== other.extra;
+          
+      
+    }
+
+  public void displayInfo() {
+        super.displayInfo();
+        System.out.println("  Extra coco"+extra);
 
     
        
