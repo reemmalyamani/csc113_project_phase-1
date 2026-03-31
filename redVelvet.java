@@ -29,13 +29,18 @@ public class redVelvet extends Chocolate {
         return price;
     }
 
+
+    public boolean isSame(Cake c){
+          if(!(c instanceof redVelvet)) return false;
+          redVelvet other= (redVelvet)c;
+          return super.isSame(c) && this.dye.equalsIgnoreCase(other.dye);
+          
+      
+    }
+
      public void displayInfo() {
-        double discount = getDiscount();
-        double finalPrice = price - discount;
-
-        System.out.println("Type: " + type+"--- Size:"+ size+"dye:"+dye+"\nOriginal Price: " + price+"---Discount:" + discount+"Final Price: " + finalPrice);
-
-    
+       super.displayInfo();
+        System.out.println("dye:"+dye);
        
     }
 }
