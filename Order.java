@@ -9,6 +9,7 @@ listCakes=new Cake[size];
 
 }
 
+//copy constructor
 public Order(Order o){
 this.noOfCakes=o.noOfCakes;
 this.listCakes=new Cake[o.listCakes.length];
@@ -38,37 +39,40 @@ return true;
 
 public boolean removeCake(Cake c){
 for (int i=0;i<noOfCakes;++i){
-    if(listCakes[i].getType().equals(c.getType()) && listCakes[i].getSize().equals(c.getSize())){
+    if(listCakes[i].isSame(c)){
         for(int j=i;j<noOfCakes-1;++j){
             listCakes[j]=listCakes[j+1];
         }
         listCakes[noOfCakes-1]=null;
         noOfCakes--;
+        
         return true;
     }
 }
+
 return false;
 
 }
 
-public boolean searchCake(String type) {
+public boolean searchCake(Cake C) {
     for (int i = 0; i < noOfCakes; i++) {
-        if (listCakes[i].getType().equalsIgnoreCase(type)) {
-            System.out.println("Found");
+        if (listCakes[i].isSame(C)) {
+           
             return true;
         }
     }
-    System.out.println("Not found");
+   
     return false;
 }
 
+//recursive method
 public double cakeTotalPrice(int index) {
     if (index == noOfCakes)
         return 0;
 
     return listCakes[index].CalculatePrice() 
            + cakeTotalPrice(index + 1);
-}//recursive method
+}
 
     
 public void display(){
@@ -82,4 +86,5 @@ for(int i=0;i<noOfCakes;++i){
 public int getnoOfCakes(){
     return noOfCakes;
 }
+
 }
