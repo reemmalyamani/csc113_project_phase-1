@@ -45,11 +45,14 @@ public class Chocolate extends Cake{
       
     }
 
-  public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Extra coco:"+extra);
+ 
+         public void displayInfo() {
+        double discount = getDiscount();
+        double finalPrice = price - discount;
+
+        System.out.printf("Type: %s Size: %s  layers: %d Extra coco: %b%nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,layers,exta,price,discount,finalPrice );
 
     
-       
+  
     }
 }
