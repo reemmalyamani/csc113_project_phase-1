@@ -1,6 +1,6 @@
 public class Vanilla extends Cake {
   private String topping;
-  
+ 
   public Vanilla (String type, String size, int layers, String topping){
     super (type, size,layers);
     this.topping= topping;
@@ -46,8 +46,7 @@ public class Vanilla extends Cake {
     }
 @Override
 public void displayInfo() {
-  /*  double discount = getDiscount();
-        double finalPrice = price - discount;*/
+ 
 
     super.displayInfo(); // print basic cake info (inherited)
       
@@ -56,3 +55,4 @@ public void displayInfo() {
 }
 
 }
+
