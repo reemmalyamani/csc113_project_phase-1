@@ -45,7 +45,7 @@ public void displayOrders(){
 System.out.println("***************");
     for(int i=0;i<noOfOrders;++i){
         
-        System.out.println("order "+(i+1));
+        System.out.println("Order "+(i+1));
         listOrders[i].display();
         System.out.println("");
     }
