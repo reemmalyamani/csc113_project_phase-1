@@ -40,7 +40,7 @@ public class redVelvet extends Chocolate {
 
      public void displayInfo() {
        super.displayInfo();
-        System.out.println("dye:"+dye);
+        System.out.println("dye: "+dye);
        
     }
 }
