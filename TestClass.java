@@ -126,7 +126,7 @@ switch(n){
         System.out.println("Choose from available cakes");
         System.out.println("1-Chocolate cake,size small,2 layers,extra coco");
         System.out.println("2-Vanilla cake, size medium, one layer with caramel topping");
-        System.out.println("3-Red Velvet cake, size Large, 3layers without extra coco premium dye");
+        System.out.println("3-Red Velvet cake, size Large, 3 layers without extra coco premium dye");
         System.out.println("4-Vanilla cake, size small, 2 layer with Strawberry topping");
         System.out.println("5-Chocolate cake , size Large,4 layers without extra coco");
         int Ava= input.nextInt();
