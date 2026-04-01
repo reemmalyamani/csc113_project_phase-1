@@ -45,13 +45,16 @@ public class Vanilla extends Cake {
       
     }
 @Override
-public void displayInfo() {
- 
 
-    super.displayInfo(); // print basic cake info (inherited)
-      
-    System.out.println("Topping: " + topping);
+ 
+public void displayInfo() {
+        double discount = getDiscount();
+        double finalPrice = price - discount;
+
+        System.out.printf("Type: %s Size: %s  layers: %d topping: %s %nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,layers,topping,price,discount,finalPrice );
+
     
+       
 }
 
 }
