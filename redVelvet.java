@@ -42,7 +42,7 @@ public class redVelvet extends Chocolate {
         double discount = getDiscount();
         double finalPrice = price - discount;
 
-        System.out.printf("Type: %s Size: %s  layers: %d Extra: %b  dye: %s%nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,layers,extra,dye,price,discount,finalPrice );
+        System.out.printf("Type: %s Size: %s  layers: %d  dye: %s%nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,layers,dye,price,discount,finalPrice );
 
     
        
