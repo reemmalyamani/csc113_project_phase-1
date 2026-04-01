@@ -41,7 +41,7 @@ public abstract class Cake implements Discount{
         double discount = getDiscount();
         double finalPrice = price - discount;
 
-        System.out.printf("Type: %s Size: %s%nOriginal Price: %.2f  Discount: %.2f Final Price:%.2f%n ", type,size,price,discount,finalPrice );
+        System.out.printf("Type: %s Size: %s%nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,price,discount,finalPrice );
 
     
        
