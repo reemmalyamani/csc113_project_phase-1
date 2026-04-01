@@ -47,6 +47,7 @@ System.out.println("***************");
         
         System.out.println("order "+(i+1));
         listOrders[i].display();
+        System.out.println("");
     }
     System.out.println("*********");
 }
@@ -64,4 +65,3 @@ public double customerTotal(){
 
 
 }
-
