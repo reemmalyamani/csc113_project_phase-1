@@ -95,7 +95,7 @@ switch(n){
 
     //vanilla
         else if(ctype.equalsIgnoreCase("Vanilla")){
-         System.out.println("Enter topping (Caramel/strawberry/Chocolate): ");
+         System.out.println("Enter topping (Caramel/Strawberry/Chocolate): ");
          String topping=input.next();
          c=new Vanilla("Vanilla",cSize,cLayers ,topping);}
 
