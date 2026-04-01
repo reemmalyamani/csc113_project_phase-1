@@ -1,6 +1,6 @@
 public class Vanilla extends Cake {
   private String topping;
-  private int layers;
+  
   public Vanilla (String type, String size, int layers, String topping){
     super (type, size,layers);
     this.topping= topping;
