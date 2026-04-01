@@ -148,7 +148,7 @@ switch(n){
         }
         else  System.out.println("invalid");
         break;
-
+// If user wants to remove cake
     case 3:
       if(O!=null && x>0){
        System.out.println("choose which cake you want to remove");
