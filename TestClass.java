@@ -1,4 +1,3 @@
-
 import java.util.*;
 public class TestClass {
 public static void main (String [] args ) {
@@ -45,7 +44,7 @@ do {
  
 System.out.println("Choose from list:");
 System.out.println("1-Make an order");
-System.out.println("2-Done ");
+System.out.println("2-Done ordering ");
 choice=input.nextInt();
 
 //new do while to create order
@@ -59,10 +58,10 @@ int nuOfcakes=input.nextInt();
 int n;
 do{
   System.out.println("Choose from menu:");
-                        System.out.println("1 -Customize order");
+                        System.out.println("1-Customize order");
                         System.out.println("2-Choose a cake from bakery");
                         System.out.println("3-Remove a cake from order");
-                        System.out.println("0 - Done");
+                        System.out.println("0-Exit");
                         n = input.nextInt();
 
 Cake c=null;
@@ -224,7 +223,7 @@ e1.calculateBill(C1);
 
 public static int handleCake(Cake C,Order O,int x){
   double price = C.CalculatePrice();  
-                            System.out.println("\n Final Price based on choices: " + price);
+                            System.out.println("\nFinal Price based on choices: " + price);
 
                              if (O.searchCake(C)) {  
                               
@@ -232,7 +231,7 @@ public static int handleCake(Cake C,Order O,int x){
 
                   else{ if (O.addCake(C)) {
                                 x++;
-                                C.displayInfo();
+                                /*C.displayInfo();*/
                             } else {
                                 System.out.println("Cannot add more cakes, order is full.");
                             }}
