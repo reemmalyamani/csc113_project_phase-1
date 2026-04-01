@@ -18,7 +18,7 @@ System.out.println(C.toString());
 C.displayOrders();
 
 System.out.println("\nTotal Price: "+ C.customerTotal()+"SR");
-System.out.println("Total price after customer discount:"+(C.customerTotal()-C.getDiscount()));
+System.out.println("Total price after customer discount: "+(C.customerTotal()-C.getDiscount()));
 System.out.println("\nthank you for ordering ");
 System.out.println(toString());
 }
