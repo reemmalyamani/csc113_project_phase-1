@@ -19,7 +19,7 @@ public abstract class Cake implements Discount{
         this.layers=c.layers;
     }
 
-    
+   
 
     // Abstract method then subclasses MUST implement
     public abstract double CalculatePrice();
@@ -34,19 +34,21 @@ public abstract class Cake implements Discount{
     }//override interface method
 
     public boolean isSame(Cake c){
-      return this.type.equalsIgnoreCase(c.type) && this.size.equalsIgnoreCase(c.size)&& this.layers==layers;}
+      return this.type.equalsIgnoreCase(c.type) && this.size.equalsIgnoreCase(c.size)&& this.layers==c.layers;}
 
     // Display info
     public void displayInfo() {
         double discount = getDiscount();
         double finalPrice = price - discount;
 
-        System.out.print("Type: " + type+"  Size:"+ size+"\nOriginal Price: " + price+"  Discount:" + discount+"  Final Price: " + finalPrice);
+        System.out.printf("Type: %s Size: %s%nOriginal Price: %.2f  Discount: %.2f Final Price:%.2f%n ", type,size,price,discount,finalPrice );
 
     
-
+       
     }
-    // Getters
+
+
+     // Getters
     public String getSize() {
         return size;
     }
