@@ -19,31 +19,7 @@ public abstract class Cake implements Discount{
         this.layers=c.layers;
     }
 
-    // Getters
-    public String getSize() {
-        return size;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    // Setters
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    
 
     // Abstract method then subclasses MUST implement
     public abstract double CalculatePrice();
@@ -68,6 +44,31 @@ public abstract class Cake implements Discount{
         System.out.print("Type: " + type+"  Size:"+ size+"\nOriginal Price: " + price+"  Discount:" + discount+"  Final Price: " + finalPrice);
 
     
-       
+
+    }
+    // Getters
+    public String getSize() {
+        return size;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    // Setters
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
