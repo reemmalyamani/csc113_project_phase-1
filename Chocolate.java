@@ -6,9 +6,8 @@ public class Chocolate extends Cake{
     super (type, size,layers);
     
     this.extra = extra;
-    
     this.price = 0;
-    // cocoa
+    
   }//close constructor
   public Chocolate (Chocolate c) {
     super (c.type, c.size,c.layers);
@@ -39,7 +38,7 @@ public class Chocolate extends Cake{
  
 
     public boolean isSame(Cake c){
-          if(!(c instanceof Chocolate)|| (c instanceof redVelvet)) return false;
+          if(!(c instanceof Chocolate)) return false;
           Chocolate other= (Chocolate)c;
           return super.isSame(c) && this.extra== other.extra;
           
@@ -48,7 +47,7 @@ public class Chocolate extends Cake{
 
   public void displayInfo() {
         super.displayInfo();
-        System.out.println("  Extra coco"+extra);
+        System.out.println("Extra coco:"+extra);
 
     
        
