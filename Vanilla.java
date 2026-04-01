@@ -50,7 +50,7 @@ public void displayInfo() {
 
     super.displayInfo(); // print basic cake info (inherited)
       
-    System.out.println("Topping: " + topping+" Layers:" + layers);
+    System.out.println("Topping: " + topping);
     
 }
 
