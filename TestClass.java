@@ -44,24 +44,24 @@ Customer C1=new  Customer(name,phone,loyalyears);
 do { 
  
 System.out.println("Choose from list:");
-System.out.println("1-make an order");
-System.out.println("2-done ");
+System.out.println("1-Make an order");
+System.out.println("2-Done ");
 choice=input.nextInt();
 
 //new do while to create order
 switch (choice){
 
 case 1: 
-System.out.println("how many Cakes you want to add?");
+System.out.println("How many cakes you want to add?");
 int nuOfcakes=input.nextInt();
  O=new Order(nuOfcakes);
  int x=0;
 int n;
 do{
   System.out.println("Choose from menu:");
-                        System.out.println("1 -customize order");
-                        System.out.println("2-choose cake from bakery");
-                        System.out.println("3-remove a cake from order");
+                        System.out.println("1 -Customize order");
+                        System.out.println("2-Choose a cake from bakery");
+                        System.out.println("3-Remove a cake from order");
                         System.out.println("0 - Done");
                         n = input.nextInt();
 
@@ -72,7 +72,7 @@ Cake c=null;
 switch(n){
 
     case 1:
-      System.out.println("choose type (Chocolate/Vanilla/Redvelvet) ");
+      System.out.println("Choose type (Chocolate/Vanilla/Redvelvet) ");
      
       String ctype= input.next();
       System.out.println("Enter size (Small/Medium/Large): ");
@@ -116,7 +116,7 @@ switch(n){
          c = new redVelvet("Red Velvet", cSize, cLayers, rExtra, dye);
 
          }
-         else System.out.println("invalid type ");
+         else System.out.println("Invalid type ");
  if (c != null) 
     x=handleCake(c,O,x); //method to do the rebated command
 
@@ -124,7 +124,7 @@ switch(n){
         break;
 
     case 2:
-        System.out.println("choose from available cakes");
+        System.out.println("Choose from available cakes");
         System.out.println("1-Chocolate cake,size small,2 layers,extra coco");
         System.out.println("2-Vanilla cake, size medium, one layer with caramel topping");
         System.out.println("3-Red Velvet cake, size Large, 3layers without extra coco premium dye");
@@ -151,7 +151,7 @@ switch(n){
 // If user wants to remove cake
     case 3:
       if(O!=null && x>0){
-       System.out.println("choose which cake you want to remove");
+       System.out.println("Choose which cake you want to remove");
         System.out.println("1-Chocolate cake,size small,2 layers,extra coco");
         System.out.println("2-Vanilla cake, size medium, one layer with caramel topping");
         System.out.println("3-Red Velvet cake, size Large, 3layers without extra coco premium dye");
@@ -173,8 +173,8 @@ switch(n){
          else if(remove==5){
             x=removeCake(c5,O,x);
         }
-        else  System.out.println("invalid");}
-        else System.out.println("no cakes in order to remove ");
+        else  System.out.println("Invalid");}
+        else System.out.println("No cakes in order to remove ");
         break;
 
     case 0:
@@ -183,24 +183,24 @@ switch(n){
         break;
     
         default:
-            System.out.println("invalid choice");
+            System.out.println("Invalid choice");
 
 
 
 }
-if(x==nuOfcakes) System.out.println("you have reached the maximum number of cakes you chosen for this order do another order if you want more");
+if(x==nuOfcakes) System.out.println("You have reached the maximum number of cakes you chosen for this order do another order if you want more");
 }while(n!=0 && x<nuOfcakes);
 if (x > 0) {  C1.addOrder(O);
                     } else {
-                        System.out.println("No cakes were added. Order was cancelled.");
+                        System.out.println("No cakes were added. Order was canceled.");
                     }
 break;
 
-case 2: System.out.println("thank you for choosing us");
+case 2: System.out.println("Thank you for choosing us! ");
 
         break;
 
-        default:System.err.println("invalid");
+        default:System.err.println("Invalid");
 
 }} while (choice!=2);
 
@@ -228,7 +228,7 @@ public static int handleCake(Cake C,Order O,int x){
 
                              if (O.searchCake(C)) {  
                               
-        System.out.println("This cake is already added to your order.");}
+        System.out.println("This cake is already in your order.");}
 
                   else{ if (O.addCake(C)) {
                                 x++;
@@ -241,10 +241,10 @@ public static int handleCake(Cake C,Order O,int x){
 public static int removeCake(Cake C,Order O,int x)
 {
 if(O.removeCake(C)) {
-  System.out.println("cake removed successfully");
+  System.out.println("Cake removed successfully");
   x--;
 }
-else  System.out.println("nothing found to  remove");
+else  System.out.println("Nothing to  remove");
 
 return x;
 }
