@@ -6,7 +6,7 @@ public class Bakery {
   private int nOfCake;
   private Employee listEmp[];
 private Cake listCake[];
-  private int soldCount=200;
+ 
 
 public Bakery (String name, String location, int sizeEmp){
   this.name = name;
@@ -46,9 +46,7 @@ return true;
   }
 
 
-public void decreaseSoldCount() {
-    soldCount--;
-}
+
   
 
   public void welcoming() {
