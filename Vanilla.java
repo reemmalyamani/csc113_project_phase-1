@@ -56,6 +56,13 @@ public void displayInfo() {
     
        
 }
-
+//override to use in file
+     public String getInfo(){
+ double discount = getDiscount();
+ double finalPrice = price - discount;
+ String str="";
+ str+="\nType: "+ type+"\nSize: "+size+"\nlayers:"+layers+"\ntopping: "+topping+"\noriginal price: "+price+"\nDiscount: "+discount+"\nfinal price: "+finalPrice;
+ return str;
+ }
 }
 

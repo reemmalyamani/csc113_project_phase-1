@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 public class TestClass {
 public static void main (String [] args ) {
 
@@ -202,7 +203,8 @@ case 2: System.out.println("Thank you for choosing us! ");
         default:System.err.println("Invalid");
 
 }} while (choice!=2);
-
+FileManager.SaveOrders(C1.getOrders());
+e1.billprint(C1, FileManager.readOrders());
 e1.calculateBill(C1);
 
 

@@ -1,4 +1,7 @@
-public abstract class Cake implements Discount{
+
+
+import java.io.*;
+public abstract class Cake implements Discount,Serializable{
     protected String type;
     protected double price;
     protected String size;
@@ -46,7 +49,14 @@ public abstract class Cake implements Discount{
     
        
     }
-
+ //get info method to use with file
+ public String getInfo(){
+ double discount = getDiscount();
+ double finalPrice = price - discount;
+ String str="";
+ str+="\nType: "+ type+"\nSize: "+size+"\nlayers:"+layers+"\noriginal price: "+price+"\nDiscount: "+discount+"\nfinal price: "+finalPrice;
+ return str;
+ }
 
      // Getters
     public String getSize() {

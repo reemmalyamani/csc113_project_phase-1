@@ -52,7 +52,13 @@ public class Chocolate extends Cake{
 
         System.out.printf("Type: %s Size: %s  layers: %d Extra coco: %b%nOriginal Price: %.2f  Discount: %.2f Final Price: %.2f%n ", type,size,layers,extra,price,discount,finalPrice );
 
-    
-  
-    }
+   }
+//override to use in file
+     public String getInfo(){
+ double discount = getDiscount();
+ double finalPrice = price - discount;
+ String str="";
+ str+="\nType: "+ type+"\nSize: "+size+"\nlayers:"+layers+"\n Extra coco: "+extra+"\noriginal price: "+price+"\nDiscount: "+discount+"\nfinal price: "+finalPrice;
+ return str;
+ }
 }

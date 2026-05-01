@@ -39,6 +39,9 @@ public String getName(){
     return name;
 }
 
+public int getLoyalYears (){
+    return loyalYears;
+}
 
 public void displayOrders(){
     
@@ -63,5 +66,17 @@ public double customerTotal(){
  
 }
 
+//this method will be used with file so the main list doesn't get affected
+public Order[] getOrders(){
+
+Order[]list=new Order[noOfOrders];
+for (int i = 0; i < noOfOrders; i++) {
+    list[i]=new Order(listOrders[i]);}
+    return list;
+    
+}
+
 
 }
+
+

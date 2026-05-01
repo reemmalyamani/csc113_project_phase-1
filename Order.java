@@ -1,4 +1,6 @@
-public class Order {
+import java.io.*;
+
+public class Order implements Serializable{
 
 private int noOfCakes;
 private Cake listCakes[];
@@ -81,6 +83,18 @@ for(int i=0;i<noOfCakes;++i){
     listCakes[i].displayInfo();
 }
 
+}
+
+//get info for file 
+public String  getInfo(){
+String str="";
+for(int i=0;i<noOfCakes;++i){
+    listCakes[i].CalculatePrice();
+    
+    str+=listCakes[i].getInfo()+"\n";
+   
+}
+return str;
 }
 
 public int getnoOfCakes(){
