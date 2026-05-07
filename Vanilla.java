@@ -10,13 +10,16 @@ public class Vanilla extends Cake {
       this.topping= topping;
       break;
       } 
+         else {
+            throw new InvalidToppingException();
+        }
       }
    catch (InvalidToppingException e ) {
       System.out.println ("The cake you typed in is invalid, please try again");
      topping= input.next();
      
     }
-   
+  }
   
   public Vanilla (Vanilla v) {
     //recives object 
