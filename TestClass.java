@@ -54,7 +54,7 @@ switch (choice){
 case 1: 
 System.out.println("How many cakes you want to add?");
 int nuOfcakes=input.nextInt();
- O=new Order(nuOfcakes);
+ O=new Order();
  int x=0;
 int n;
 do{
