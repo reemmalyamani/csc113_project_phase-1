@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,10 +30,11 @@ try{
      p.println(C.toString());
     double totalPrice=0;
     for(int i=0;i<list.length;++i){
+    if(list[i]!=null){
         totalPrice+=list[i].cakeTotalPrice();
 p.println("***************");
 p.println("Order "+(i+1));
-p.println(list[i].getInfo());
+p.println(list[i].InfoFile());}
 
     }
     //because we want the discount to be implemented on the givin array
@@ -72,6 +72,13 @@ System.out.println(toString());
 
 public String toString(){
 return "Responsible employee: "+name;
+}
+
+
+public void EmployeeRating(int review){
+
+if(review<1||review>5) throw new RuntimeException("invalid Rating ,rating must be between 1-5");
+ else{System.out.println("thank you for rating");}
 }
 
 
