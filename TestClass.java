@@ -97,8 +97,8 @@ switch(n){
     //vanilla
         else if(ctype.equalsIgnoreCase("Vanilla")){
          System.out.println("Enter topping (Caramel/Strawberry/Chocolate): ");
-         String topping=input.next();
-         c=new Vanilla("Vanilla",cSize,cLayers ,topping);}
+            try{ String topping=input.next();
+         c=new Vanilla("Vanilla",cSize,cLayers ,topping);}}
 
        //Redvelvet
          else if(ctype.equalsIgnoreCase("Redvelvet")){
@@ -206,9 +206,14 @@ case 2: System.out.println("Thank you for choosing us! ");
 FileManager.SaveOrders(C1.getOrders());
 e1.billprint(C1, FileManager.readOrders());
 e1.calculateBill(C1);
-
-
-
+while (true)
+    try {
+    System.out.println ("Enter a rating from 1 to 5" );
+    int review = input.nextInext();
+}
+catch (RuntimeException ) {
+    if (review < 0 ||  review >5 )
+}
 
 
 
