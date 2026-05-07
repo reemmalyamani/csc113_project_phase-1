@@ -25,11 +25,11 @@ if (c instanceof redVelvet){
    listCake[nOfCake++]=new redVelvet((redVelvet)c);
 return true;}
    
-if(c instanceof Chocolate){
+else if(c instanceof Chocolate){
 listCake[nOfCake++]=new Chocolate((Chocolate)c);
 return true;}
    
-if(c instanceof Vanilla){
+else if(c instanceof Vanilla){
    listCake[nOfCake++]=new Vanilla((Vanilla)c);
 return true;}
 }
