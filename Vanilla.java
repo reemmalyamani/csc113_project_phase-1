@@ -1,13 +1,14 @@
 public class Vanilla extends Cake {
   private String topping;
  
-  public Vanilla (String type, String size, int layers, String topping) throws {
+  public Vanilla (String type, String size, int layers, String topping) throws UserDefinedExample {
     super (type, size,layers);
     if ( (topping.equalsIgnoreCase("chocolate")) ||(topping.equalsIgnoreCase("strawberry")) ||(topping.equalsIgnoreCase("caramel"))  ) {
     this.topping= topping;} 
 
-    else
-      throw new 
+    else {
+      throw new UserDefinedExample ("Invalid topping for vanilla cake"); 
+    }
    
   
   public Vanilla (Vanilla v) {
