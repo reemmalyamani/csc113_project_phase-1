@@ -1,6 +1,5 @@
-public class InvalidToppingException extends Exception {
+public class InvalidToppingException extends RuntimeException {
     public InvalidToppingException(String message) {
         super(message);
     }
 }
-//use this as our userDefined Exception
