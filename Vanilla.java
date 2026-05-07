@@ -1,8 +1,7 @@
 import java.util.Scanner;
 public class Vanilla extends Cake {
   private String topping;
-  Scanner input = new Scanner (System.in);
-  public Vanilla (String type, String size, int layers, String topping) throws Exception   {
+    public Vanilla (String type, String size, int layers, String topping) throws InvalidToppingException   {
     super (type, size,layers);
    
 
@@ -11,7 +10,7 @@ public class Vanilla extends Cake {
    
       } 
          else {
-            throw new InvalidToppingException();
+            throw new InvalidToppingException("Invalid topping ");
         }
       
      
@@ -69,7 +68,7 @@ public void displayInfo() {
        
 }
 //override to use in file
-     public String getInfo(){
+     public String InfoFile(){
  double discount = getDiscount();
  double finalPrice = price - discount;
  String str="";
@@ -77,4 +76,3 @@ public void displayInfo() {
  return str;
  }
 }
-
