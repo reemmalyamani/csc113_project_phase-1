@@ -2,23 +2,20 @@ import java.util.Scanner;
 public class Vanilla extends Cake {
   private String topping;
   Scanner input = new Scanner (System.in);
-  public Vanilla (String type, String size, int layers, String topping)   {
+  public Vanilla (String type, String size, int layers, String topping) throws Exception   {
     super (type, size,layers);
-    while (true)
-      try{
+   
+
       if ( (topping.equalsIgnoreCase("chocolate")) ||(topping.equalsIgnoreCase("strawberry")) ||(topping.equalsIgnoreCase("caramel"))  ) {
       this.topping= topping;
-      break;
+   
       } 
          else {
             throw new InvalidToppingException();
         }
-      }
-   catch (InvalidToppingException e ) {
-      System.out.println ("The cake you typed in is invalid, please try again");
-     topping= input.next();
+      
      
-    }
+    
   }
   
   public Vanilla (Vanilla v) {
