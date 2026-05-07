@@ -52,8 +52,7 @@ choice=input.nextInt();
 switch (choice){
 
 case 1: 
-System.out.println("How many cakes you want to add?");
-int nuOfcakes=input.nextInt();
+
  O=new Order();
  int x=0;
 int n;
@@ -97,9 +96,23 @@ switch(n){
     //vanilla
         else if(ctype.equalsIgnoreCase("Vanilla")){
          System.out.println("Enter topping (Caramel/Strawberry/Chocolate): ");
-            try{ String topping=input.next();
-         c=new Vanilla("Vanilla",cSize,cLayers ,topping);}}
-
+         String topping;
+         
+         //handling userDefined Exception
+         while (true) {
+            try{ topping=input.next();
+         c=new Vanilla("Vanilla",cSize,cLayers ,topping);
+         break;}
+         catch(InvalidToppingException e){
+         System.out.println(e.getMessage());
+         System.out.println("please Enter topping agian");
+       
+         }
+         
+         }//while for try
+         
+         
+} //end if for vanilla
        //Redvelvet
          else if(ctype.equalsIgnoreCase("Redvelvet")){
           System.out.println("Extra chocolate? (Y/N): ");
@@ -186,10 +199,10 @@ switch(n){
             System.out.println("Invalid choice");
 
 
-
 }
-if(x==nuOfcakes) System.out.println("You have reached the maximum number of cakes you chosen for this order do another order if you want more");
-}while(n!=0 && x<nuOfcakes);
+
+}while(n!=0);
+
 if (x > 0) {  C1.addOrder(O);
                     } else {
                         System.out.println("No cakes were added. Order was canceled.");
@@ -204,23 +217,32 @@ case 2: System.out.println("Thank you for choosing us! ");
 
 }} while (choice!=2);
 FileManager.SaveOrders(C1.getOrders());
-e1.billprint(C1, FileManager.readOrders());
-e1.calculateBill(C1);
-while (true)
-    try {
-    System.out.println ("Enter a rating from 1 to 5" );
-        int review = input.nextInext();
-        if (review < 0 ||  review >5 ){
-            throw new RuntimeException(); }
-        break;
-}
-catch (RuntimeException ) {
-   System.out.println ("The review you entered is invaid, please enter it again"); 
-    review = input.nextInext(); 
-    input.nextLine(); //cleaning garbage line
+e1.billprint(C1, FileManager.readOrders());//store in file
+e1.calculateBill(C1);// Run scren
+
+while(true){
+
+try{
+System.out.println("Enter a rating from 1 to 5");
+int rating=input.nextInt();
+
+e1.EmployeeRating(rating);
+break;
+
+}catch(RuntimeException e){
+System.out.println(e.getMessage());
+System.out.println("Invalid pleese enter again ( rating from 1 to 5)");
+input.nextLine();
 }
 
+
+
+
 }
+
+
+
+}//end main
 
 
 
@@ -234,7 +256,7 @@ public static int handleCake(Cake C,Order O,int x){
 
                   else{ if (O.addCake(C)) {
                                 x++;
-                                /*C.displayInfo();*/
+                              
                             } else {
                                 System.out.println("Cannot add more cakes, order is full.");
                             }}
