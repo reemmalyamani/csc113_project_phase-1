@@ -50,7 +50,7 @@ public class redVelvet extends Chocolate {
 
 
     //override to use in file
-     public String getInfo(){
+     public String InfoFile(){
  double discount = getDiscount();
  double finalPrice = price - discount;
  String str="";
