@@ -113,12 +113,12 @@ current=current.getNext();
 }
 
 //get info for file 
-public String  getInfo(){
+public String  InfoFile(){
 String str="";
 NodeCake current=headCake;
 while(current!=null){
     current.getData().CalculatePrice();
-str+=current.getData().getInfo();
+str+=current.getData().InfoFile();
 current=current.getNext();
 }
 
