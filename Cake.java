@@ -1,17 +1,31 @@
 
-
+import java.util.Scanner;
 import java.io.*;
 public abstract class Cake implements Discount,Serializable{
     protected String type;
     protected double price;
     protected String size;
     protected int layers;
-
+    Scanner input = new Scanner (System.in);
     // Constructor
     public Cake(String type, String size,int layers) {
         this.type = type;
         this.size = size;
-        this.layers=layers;
+        
+        while (true) {
+              try{
+if(layers>0) {
+    this.layers=layers;
+    break;
+}
+else {
+            throw new Exception ("Unchecked exception: layers cannot be negative.");
+     }
+              catch(Exception e){
+            System.out.println ("Enter layers again ");
+            layers= input.nextInt();
+        }
+        }// while oop
     }
 
     // Copy Constructor
