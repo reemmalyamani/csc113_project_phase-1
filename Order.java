@@ -3,53 +3,73 @@ import java.io.*;
 public class Order implements Serializable{
 
 private int noOfCakes;
-private Cake listCakes[];
+private NodeCake headCake; 
 
-public Order(int size){
+public Order(){
 noOfCakes=0;
-listCakes=new Cake[size];
+headCake=null;
 
 }
 
 //copy constructor
 public Order(Order o){
-this.noOfCakes=o.noOfCakes;
-this.listCakes=new Cake[o.listCakes.length];
-for(int i=0;i<noOfCakes;++i){
-if(o.listCakes[i] instanceof redVelvet)
-    this.listCakes[i]=new redVelvet((redVelvet)o.listCakes[i]);
+noOfCakes=o.noOfCakes;
+headCake=null;
+NodeCake current= o.headCake;
+while(current!=null){
 
-else if(o.listCakes[i]instanceof Chocolate)
-    this.listCakes[i]=new Chocolate((Chocolate)o.listCakes[i]);
+    Cake copy=null;
+    if(current.getData() instanceof redVelvet)
+        copy=new redVelvet((redVelvet)current.getData());
+    else if(current.getData() instanceof Chocolate)
+           copy=new Chocolate((Chocolate)current.getData());
 
-else if(o.listCakes[i]instanceof Vanilla)
-    this.listCakes[i]=new Vanilla((Vanilla)o.listCakes[i]);
+  else if(current.getData() instanceof Vanilla)
+           copy=new Vanilla((Vanilla)current.getData());
 
+NodeCake newnode= new NodeCake(copy);
+
+newnode.setNext(headCake);
+headCake=newnode;
+current=current.getNext();
 
 }
-
-
-
 }
+
 public boolean addCake(Cake c){
-if(noOfCakes==listCakes.length)
-return false;
+NodeCake newNode= new NodeCake(c);
+newNode.setNext(headCake);
+headCake=newNode;
 
-listCakes[noOfCakes++]=c;
-return true;
-}
+noOfCakes++;
+return true;}
+
 
 public boolean removeCake(Cake c){
-for (int i=0;i<noOfCakes;++i){
-    if(listCakes[i].isSame(c)){
-        for(int j=i;j<noOfCakes-1;++j){
-            listCakes[j]=listCakes[j+1];
-        }
-        listCakes[noOfCakes-1]=null;
-        noOfCakes--;
-        
-        return true;
-    }
+
+if(headCake==null)
+    return false;
+if(headCake.getData().isSame(c)){
+headCake=headCake.getNext();
+noOfCakes--;
+return true;}
+
+NodeCake prev=headCake;
+NodeCake current=headCake.getNext();
+
+while(current!=null){
+
+if(current.getData().isSame(c)){
+
+prev.setNext (current.getNext());
+noOfCakes--;
+return true;
+
+
+}
+prev=current;
+current=current.getNext();
+
 }
 
 return false;
@@ -57,30 +77,37 @@ return false;
 }
 
 public boolean searchCake(Cake C) {
-    for (int i = 0; i < noOfCakes; i++) {
-        if (listCakes[i].isSame(C)) {
-           
-            return true;
-        }
-    }
-   
-    return false;
+   NodeCake current=headCake;
+   while(current!=null){
+
+    if(current.getData().isSame(C))
+        return true;
+    current=current.getNext();
+   }
+
+   return false;
 }
 
 //recursive method
-public double cakeTotalPrice(int index) {
-    if (index == noOfCakes)
-        return 0;
+   public double cakeTotalPrice() {
+        return cakeTotalPrice(headCake);
+    }
+    private double cakeTotalPrice(NodeCake current) {
+if(current == null)
+return 0;
 
-    return listCakes[index].CalculatePrice() 
-           + cakeTotalPrice(index + 1);
-}
+ return current.getData().CalculatePrice()+ cakeTotalPrice(current.getNext());
+    }
 
     
 public void display(){
 
-for(int i=0;i<noOfCakes;++i){
-    listCakes[i].displayInfo();
+NodeCake current= headCake;
+while(current!=null){
+
+current.getData().displayInfo();
+current=current.getNext();
+
 }
 
 }
@@ -88,12 +115,13 @@ for(int i=0;i<noOfCakes;++i){
 //get info for file 
 public String  getInfo(){
 String str="";
-for(int i=0;i<noOfCakes;++i){
-    listCakes[i].CalculatePrice();
-    
-    str+=listCakes[i].getInfo()+"\n";
-   
+NodeCake current=headCake;
+while(current!=null){
+    current.getData().CalculatePrice();
+str+=current.getData().getInfo();
+current=current.getNext();
 }
+
 return str;
 }
 
