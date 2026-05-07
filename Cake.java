@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.io.*;
 public abstract class Cake implements Discount,Serializable{
@@ -6,12 +5,12 @@ public abstract class Cake implements Discount,Serializable{
     protected double price;
     protected String size;
     protected int layers;
-    Scanner input = new Scanner (System.in);
+
     // Constructor
     public Cake(String type, String size,int layers) {
         this.type = type;
         this.size = size;
-        
+            Scanner input = new Scanner (System.in);
         while (true) {
               try{
 if(layers>0) {
@@ -19,13 +18,13 @@ if(layers>0) {
     break;
 }
 else {
-            throw new Exception ("Unchecked exception: layers cannot be negative.");
-     }
+            throw new Exception ("checked exception: layers cannot be negative.");
+     }}
               catch(Exception e){
             System.out.println ("Enter layers again ");
             layers= input.nextInt();
         }
-        }// while oop
+        }
     }
 
     // Copy Constructor
@@ -63,8 +62,8 @@ else {
     
        
     }
- //get info method to use with file
- public String getInfo(){
+ // info method to use with file
+ public String InfoFile(){
  double discount = getDiscount();
  double finalPrice = price - discount;
  String str="";
