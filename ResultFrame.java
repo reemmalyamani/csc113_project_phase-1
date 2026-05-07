@@ -8,7 +8,8 @@ public class ResultFrame extends JFrame implements ActionListener {
     private JTextArea resultArea;
     private JButton closeButton;
 
-     // the linked list here is a place holder public ResultFrame(String customerName, LinkedList<String> orderList, double total) {
+    
+     public ResultFrame(String customerName, LinkedList<String> orderList, double total) {
         Container contentPane = getContentPane();
         contentPane.setLayout(new FlowLayout());
         // Frame settings
@@ -24,9 +25,10 @@ public class ResultFrame extends JFrame implements ActionListener {
         String receipt = "Customer: " + customerName + "\n"; // recipt 
         receipt = receipt + "------------------------\n";
 
-        for (String cake : orderList) {
-            receipt = receipt + cake + "\n";
-        }
+       for(int i = 0; i < orderList.size(); i++) {
+
+    receipt = receipt + orderList.get(i) + "\n";
+}
 
         receipt = receipt + "------------------------\n";
         receipt = receipt + "Total: " + total + " SAR\n"; // calculate total
