@@ -209,20 +209,16 @@ e1.calculateBill(C1);
 while (true)
     try {
     System.out.println ("Enter a rating from 1 to 5" );
-    int review = input.nextInext();
+        int review = input.nextInext();
+        if (review < 0 ||  review >5 ){
+            throw new RuntimeException(); }
+        break;
 }
 catch (RuntimeException ) {
-    if (review < 0 ||  review >5 )
+   System.out.println ("The review you entered is invaid, please enter it again"); 
+    review = input.nextInext(); 
+    input.nextLine(); //cleaning garbage line
 }
-
-
-
-
-
-
-
-
-
 
 }
 
