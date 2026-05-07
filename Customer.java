@@ -60,7 +60,7 @@ public double customerTotal(){
     double sumTotalOrders=0;
     for(int i=0;i<noOfOrders;++i){
        
-        sumTotalOrders+=listOrders[i].cakeTotalPrice(0);
+        sumTotalOrders+=listOrders[i].cakeTotalPrice();
     }
    return sumTotalOrders;
  
