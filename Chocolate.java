@@ -10,7 +10,7 @@ public class Chocolate extends Cake{
     
   }//close constructor
   public Chocolate (Chocolate c) {
-    super (c.type, c.size,c.layers);
+    super (c);
    
     this.extra = c.extra;
     this.price = c.price;
@@ -54,7 +54,7 @@ public class Chocolate extends Cake{
 
    }
 //override to use in file
-     public String getInfo(){
+     public String InfoFile(){
  double discount = getDiscount();
  double finalPrice = price - discount;
  String str="";
