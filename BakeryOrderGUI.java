@@ -3,143 +3,254 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.LinkedList;
 
-public class BakeryOrderGUI extends JFrame implements ActionListener { // input frame: lets user enter the order details
+public class BakeryOrderGUI extends JFrame implements ActionListener {
 
-    private JTextField customerField; // user entries
+    private JTextField customerField;
     private JTextField cakeField;
-    private JTextField priceField;
+    private JTextField sizeField;
 
-    private JTextArea orderArea; //  displays cakes already added
-    // BUTTONS HERE:
-    private JButton addButton; 
-    private JButton finishButton; // opens results frame
-    private JButton clearButton; 
+    private JTextArea orderArea;
 
-    // LINKED LIST SHOULD GO HERE !!!!!!!!!!!!!!!!!!!!
+    private JButton addButton;
+    private JButton finishButton;
+    private JButton clearButton;
+
+    private LinkedList<String> orderList;
+
     private double total;
 
     public BakeryOrderGUI() {
-        // use new and create linked list inside the constructor
+
         total = 0;
 
+        orderList = new LinkedList<String>();
+
         Container contentPane = getContentPane();
+
         contentPane.setLayout(new FlowLayout());
 
         setTitle("Bakery Order Input");
+
         setSize(400, 350);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JLabel customerLabel = new JLabel("Customer Name:");
+
         contentPane.add(customerLabel);
 
         customerField = new JTextField();
+
         customerField.setColumns(20);
+
         contentPane.add(customerField);
 
         JLabel cakeLabel = new JLabel("Cake Type:");
+
         contentPane.add(cakeLabel);
 
         cakeField = new JTextField();
+
         cakeField.setColumns(20);
+
         contentPane.add(cakeField);
 
-        JLabel priceLabel = new JLabel("Cake Price:");
-        contentPane.add(priceLabel);
-        // price label and field
-        priceField = new JTextField();
-        priceField.setColumns(20);
-        contentPane.add(priceField);
-        //buttons here
-      
+        JLabel sizeLabel = new JLabel("Cake Size:");
+
+        contentPane.add(sizeLabel);
+
+        sizeField = new JTextField();
+
+        sizeField.setColumns(20);
+
+        contentPane.add(sizeField);
+
         addButton = new JButton("ADD CAKE");
+
         finishButton = new JButton("FINISH ORDER");
+
         clearButton = new JButton("CLEAR");
 
         contentPane.add(addButton);
+
         contentPane.add(finishButton);
+
         contentPane.add(clearButton);
-        // create display box
+
         orderArea = new JTextArea();
+
         orderArea.setRows(8);
+
         orderArea.setColumns(30);
+
         orderArea.setEditable(false);
+
         contentPane.add(orderArea);
-      // IMPORTANT: register event listeners
+
         addButton.addActionListener(this);
+
         finishButton.addActionListener(this);
+
         clearButton.addActionListener(this);
 
         setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent event) { // action performed method
-        if (event.getSource() == addButton) {
+    public void actionPerformed(ActionEvent event) {
+
+        if(event.getSource() == addButton) {
+
             addCake();
-        } else if (event.getSource() == finishButton) {
+        }
+
+        else if(event.getSource() == finishButton) {
+
             finishOrder();
-        } else if (event.getSource() == clearButton) {
+        }
+
+        else if(event.getSource() == clearButton) {
+
             clearFields();
         }
     }
 
     private void addCake() {
-        try {
-            String cakeName = cakeField.getText();
-            double price = Double.parseDouble(priceField.getText());
 
-            if (cakeName.equals("")) {
-                JOptionPane.showMessageDialog(null, "Please enter cake type.");
-                return;
-            }
+        String cakeName = cakeField.getText();
 
-            if (price < 0) {
-                throw new IllegalArgumentException("Price cannot be negative.");
-            }
+        String size = sizeField.getText();
 
-            String cakeInfo = cakeName + " - " + price + " SAR";
+        if(cakeName.equals("") || size.equals("")) {
 
-            orderList.add(cakeInfo);
-            total = total + price;
+            JOptionPane.showMessageDialog(null,
+                    "Please enter cake type and size.");
 
-            orderArea.append(cakeInfo + "\n");
-
-            cakeField.setText("");
-            priceField.setText("");
-// validate user input
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Please enter a valid number for price.");
-        } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            return;
         }
+
+        double price = 0;
+
+        if(cakeName.equalsIgnoreCase("Chocolate")) {
+
+            if(size.equalsIgnoreCase("Small"))
+
+                price = 25;
+
+            else if(size.equalsIgnoreCase("Medium"))
+
+                price = 35;
+
+            else if(size.equalsIgnoreCase("Large"))
+
+                price = 45;
+        }
+
+        else if(cakeName.equalsIgnoreCase("Vanilla")) {
+
+            if(size.equalsIgnoreCase("Small"))
+
+                price = 20;
+
+            else if(size.equalsIgnoreCase("Medium"))
+
+                price = 30;
+
+            else if(size.equalsIgnoreCase("Large"))
+
+                price = 40;
+        }
+
+        else if(cakeName.equalsIgnoreCase("Redvelvet")) {
+
+            if(size.equalsIgnoreCase("Small"))
+
+                price = 35;
+
+            else if(size.equalsIgnoreCase("Medium"))
+
+                price = 45;
+
+            else if(size.equalsIgnoreCase("Large"))
+
+                price = 55;
+        }
+
+        else {
+
+            JOptionPane.showMessageDialog(null,
+                    "Invalid cake type.");
+
+            return;
+        }
+
+        if(price == 0) {
+
+            JOptionPane.showMessageDialog(null,
+                    "Invalid size.");
+
+            return;
+        }
+
+        String cakeInfo = cakeName + " "
+                + size + " - "
+                + price + " SAR";
+
+        orderList.add(cakeInfo);
+
+        total += price;
+
+        orderArea.append(cakeInfo + "\n");
+
+        cakeField.setText("");
+
+        sizeField.setText("");
     }
 
     private void finishOrder() {
+
         String customerName = customerField.getText();
 
-        if (customerName.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please enter customer name.");
+        if(customerName.equals("")) {
+
+            JOptionPane.showMessageDialog(null,
+                    "Please enter customer name.");
+
             return;
         }
 
-        if (orderList.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please add at least one cake.");
+        if(orderList.isEmpty()) {
+
+            JOptionPane.showMessageDialog(null,
+                    "Please add at least one cake.");
+
             return;
         }
 
-        ResultFrame resultFrame = new ResultFrame(customerName, orderList, total);
+        ResultFrame resultFrame =
+                new ResultFrame(customerName,
+                        orderList,
+                        total);
+
         resultFrame.setVisible(true);
     }
 
     private void clearFields() {
+
         customerField.setText("");
+
         cakeField.setText("");
-        priceField.setText("");
+
+        sizeField.setText("");
+
         orderArea.setText("");
+
         orderList.clear();
+
         total = 0;
     }
 
     public static void main(String[] args) {
+
         new BakeryOrderGUI();
     }
 }
