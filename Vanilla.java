@@ -1,11 +1,15 @@
 public class Vanilla extends Cake {
   private String topping;
  
-  public Vanilla (String type, String size, int layers, String topping){
+  public Vanilla (String type, String size, int layers, String topping) throws {
     super (type, size,layers);
-    this.topping= topping;
+    if ( (topping.equalsIgnoreCase("chocolate")) ||(topping.equalsIgnoreCase("strawberry")) ||(topping.equalsIgnoreCase("caramel"))  ) {
+    this.topping= topping;} 
+
+    else
+      throw new 
    
-  }
+  
   public Vanilla (Vanilla v) {
     //recives object 
     super (v); // v instead of v.type, v.size  so it uses the copy construcrtor 
