@@ -1,5 +1,5 @@
-public class InvalidCakeTypeException extends Exception {
-    public InvalidCakeTypeException(String message) {
+public class InvalidToppingException extends Exception {
+    public InvalidToppingException(String message) {
         super(message);
     }
 }
