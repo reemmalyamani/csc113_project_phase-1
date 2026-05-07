@@ -31,7 +31,7 @@ try{
      p.println(C.toString());
     double totalPrice=0;
     for(int i=0;i<list.length;++i){
-        totalPrice+=list[i].cakeTotalPrice(0);
+        totalPrice+=list[i].cakeTotalPrice();
 p.println("***************");
 p.println("Order "+(i+1));
 p.println(list[i].getInfo());
